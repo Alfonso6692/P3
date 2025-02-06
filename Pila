@@ -1,44 +1,42 @@
-
 import java.util.Scanner;
+import java.util.Stack;
 
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
-/**
- *
- * @author usuario
- */
 public class Pila {
+    private Stack<Integer> pila; // Usamos la clase Stack de Java para implementar la pila
 
-    Scanner teclado = new Scanner(System.in);
-    int pilaNumerica[] = new int[5];
-    int tope = 1;
+    // Constructor
+    public Pila() {
+        pila = new Stack<>();
+    }
 
-    //Metodos para insertar elementos a la pila
+    // Método para agregar un elemento a la pila (push)
     public void push() {
-        if (tope >= pilaNumerica.length - 1) {
-            System.out.println("La pila esta llena");
-        } else {
-            tope += 1;
-            System.out.println("Ingrese el dato: ");
-            pilaNumerica[tope] = teclado.nextInt();
-        }
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("Ingrese un número para agregar a la pila: ");
+        int numero = scanner.nextInt();
+        pila.push(numero);
+        System.out.println("Número " + numero + " agregado a la pila.");
     }
 
+    // Método para eliminar el elemento superior de la pila (pop)
     public void pop() {
-        if (tope == -1) {
-            System.out.println("La lista esta vacia.");
-
+        if (pila.isEmpty()) {
+            System.out.println("La pila está vacía. No se puede eliminar ningún elemento.");
         } else {
-            System.out.println("Se ha eliminado un elemento de la pila");
-            pilaNumerica[tope] = 0;
+            int numeroEliminado = pila.pop();
+            System.out.println("Número " + numeroEliminado + " eliminado de la pila.");
         }
     }
-public void mostrarPila()
-{
-    for (int tope = 4; tope > 0; tope--) {
-            System.out.println("datos de la pila"+pilaNumerica[tope]);
+
+    // Método para mostrar todos los elementos de la pila
+    public void mostrarPila() {
+        if (pila.isEmpty()) {
+            System.out.println("La pila está vacía.");
+        } else {
+            System.out.println("Elementos en la pila:");
+            for (int i = pila.size() - 1; i >= 0; i--) {
+                System.out.println(pila.get(i));
+            }
+        }
     }
-}
 }
