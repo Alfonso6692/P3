@@ -1,0 +1,44 @@
+
+import java.util.Scanner;
+
+/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
+ */
+/**
+ *
+ * @author usuario
+ */
+public class Pila {
+
+    Scanner teclado = new Scanner(System.in);
+    int pilaNumerica[] = new int[5];
+    int tope = 1;
+
+    //Metodos para insertar elementos a la pila
+    public void push() {
+        if (tope >= pilaNumerica.length - 1) {
+            System.out.println("La pila esta llena");
+        } else {
+            tope += 1;
+            System.out.println("Ingrese el dato: ");
+            pilaNumerica[tope] = teclado.nextInt();
+        }
+    }
+
+    public void pop() {
+        if (tope == -1) {
+            System.out.println("La lista esta vacia.");
+
+        } else {
+            System.out.println("Se ha eliminado un elemento de la pila");
+            pilaNumerica[tope] = 0;
+        }
+    }
+public void mostrarPila()
+{
+    for (int tope = 4; tope > 0; tope--) {
+            System.out.println("datos de la pila"+pilaNumerica[tope]);
+    }
+}
+}
